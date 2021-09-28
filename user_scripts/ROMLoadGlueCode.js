@@ -60,15 +60,7 @@ function fileLoadROM() {
 function downloadFile(fileName, registrationHandler) {
     var ajax = new XMLHttpRequest();
     ajax.onload = registrationHandler;
-    try {
-     ajax.open("GET", "./" + fileName, true);
-    }
-    catch(error) {
-     alert("Failed to load file. Trying again.");
-    }
-    finally {
-     ajax.open("GET", "./Binaries/" + fileName, true)
-    }
+    ajax.open("GET", "./" + fileName, true);
     ajax.responseType = "arraybuffer";
     ajax.overrideMimeType("text/plain; charset=x-user-defined");
     ajax.send(null);
